@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from 'react-hook-form';
-import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { sendEmail } from "@/utils/send-email";
 //components
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -14,69 +14,88 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 //form schemas
 const required_error = "This field cannot be left blank";
 
 const formSchema = z.object({
-    emailAddress: z.string().email(),
-    message: z.string({required_error})
-})
-
+  emailAddress: z.string().email(),
+  name: z.string({ required_error }),
+  subject: z.string({ required_error }),
+  message: z.string({ required_error }),
+});
 
 export default function ContactForm() {
-   const form = useForm({
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-        emailAddress: '',
-        message: ''
-    }
-   })
-   const onSubmit = (values) => {
-    sendEmail(values)
-   }
-   return (
+      emailAddress: "",
+      name: "",
+      subject: "",
+      message: "",
+    },
+  });
+  const onSubmit = (values) => {
+    sendEmail(values);
+  };
+  return (
     <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-            <FormField
-                control={form.control}
-                name="emailAddress"
-                render={({field}) => (
-                    <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="emailme@yourEmail.com" {...field} />
-                    </FormControl>
-                    <FormDescription>
-                      Email address
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem> 
-                )}
-            />
-            <FormField
-                control={form.control}
-                name="message"
-                render={({field}) => (
-                    <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea {...field}></Textarea>
-                    </FormControl>
-                    <FormDescription>
-                      Email address
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem> 
-                )}
-            />
-            <Button type='submit'>Send Message</Button>
-        </form>
-
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 ">
+        <div className="sm:flex sm:space-x-4">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem className="mb-4 sm:mb-0 sm:w-1/2">
+                <FormControl>
+                  <Input placeholder="Name *" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="emailAddress"
+            render={({ field }) => (
+              <FormItem className="sm:w-1/2">
+                <FormControl>
+                  <Input placeholder="Email *" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <FormField
+          control={form.control}
+          name="subject"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormControl>
+                <Input placeholder="Subject *" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Textarea {...field} placeholder="Your message *"></Textarea>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Send Message</Button>
+      </form>
     </Form>
-   )
+  );
 }

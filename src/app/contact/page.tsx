@@ -1,13 +1,12 @@
-import ContactForm from "./ContactForm"
-
+import ContactForm from "./ContactForm";
 
 function Contact() {
   return (
-    <div>
-     <h2>Please get in touch!</h2>
-     <ContactForm/>
+    <div className="space-y-6 mx-auto p-8 w-3/4 mt-16 border flex flex-col ">
+      <h2 className="text-xl font-medium">Contact me!</h2>
+      <ContactForm />
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

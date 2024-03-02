@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { sendEmail } from "@/utils/send-email";
+
 //components
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useEffect } from "react";
 
 //form schemas
 const required_error = "This field cannot be left blank";
@@ -38,7 +40,18 @@ export default function ContactForm() {
       message: "",
     },
   });
-  const onSubmit = (values) => {
+
+  const {
+    reset,
+    formState: { isSubmitSuccessful },
+  } = form;
+
+  useEffect(() => {
+    reset();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSubmitSuccessful]);
+
+  const onSubmit = (values: any) => {
     sendEmail(values);
   };
   return (

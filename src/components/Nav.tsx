@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import {
   BackpackIcon,
   EnvelopeClosedIcon,
@@ -6,7 +7,14 @@ import {
   IdCardIcon,
   MixIcon,
 } from "@radix-ui/react-icons";
-function Nav() {
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { KeyRound } from "lucide-react";
+
+export default async function Nav() {
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.auth.getSession();
+
   return (
     <nav className="flex flex-col flex-wrap gap-4">
       <Link href={"/"} className="flex">
@@ -39,8 +47,14 @@ function Nav() {
         </span>
         Contact
       </Link>
+      {data.session && (
+        <Link href={"/admin"} className="flex">
+          <span className="mr-3">
+            <KeyRound width="22" height="22" />
+          </span>
+          Admin
+        </Link>
+      )}
     </nav>
   );
 }
-
-export default Nav;

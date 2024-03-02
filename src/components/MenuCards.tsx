@@ -1,4 +1,4 @@
-import MenuCard from "./MenuCard"
+import MenuCard from "./MenuCard";
 function MenuCards() {
   return (
     <div className="grid grid-cols-2 gap-8  ">
@@ -6,9 +6,8 @@ function MenuCards() {
       <MenuCard />
       <MenuCard />
       <MenuCard />
-    
     </div>
-  )
+  );
 }
 
-export default MenuCards
+export default MenuCards;

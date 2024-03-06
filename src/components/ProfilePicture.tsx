@@ -7,7 +7,7 @@ function ProfilePicture() {
       alt="Profile Image"
       height={400}
       width={400}
-      className="rounded-full border"
+      className="rounded-full p-8 sm:p-0"
     />
   );
 }

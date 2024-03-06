@@ -29,7 +29,7 @@ export default async function Nav() {
         </span>
         About
       </Link>
-      <Link href={"/about"} className="flex">
+      <Link href={"/services"} className="flex">
         <span className="mr-3">
           <MixIcon width="22" height="22" />
         </span>

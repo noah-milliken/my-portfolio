@@ -6,23 +6,19 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { Button } from "./ui/button";
-import Link from "next/link";
 
-function MenuCard({ key, title, description, href, buttonText }) {
+function MenuCard({ key, title, description, icon }) {
   return (
     <Card key={key}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardContent>
+          <div className="flex items-center space-x-8">
+            <div>{icon}</div>
+            <CardDescription>{description}</CardDescription>
+          </div>
+        </CardContent>
       </CardHeader>
-      <CardContent>
-        <Button>
-          <Link href={href}>
-            <span className="mr-3">{buttonText}</span>
-          </Link>
-        </Button>
-      </CardContent>
     </Card>
   );
 }

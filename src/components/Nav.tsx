@@ -16,7 +16,7 @@ export default async function Nav() {
   const { data } = await supabase.auth.getSession();
 
   return (
-    <nav className="flex flex-col flex-wrap gap-4">
+    <nav className="flex flex-col flex-wrap h-screen gap-4">
       <Link href={"/"} className="flex">
         <span className="mr-3">
           <HomeIcon width="22" height="22" />
@@ -47,7 +47,7 @@ export default async function Nav() {
         </span>
         Contact
       </Link>
-      {data.session && (
+      {data?.session && (
         <Link href={"/admin"} className="flex">
           <span className="mr-3">
             <KeyRound width="22" height="22" />

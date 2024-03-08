@@ -1,17 +1,33 @@
-import React from "react";
 import ProfilePicture from "./ProfilePicture";
-import MenuCards from "./MenuCards";
+
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-function Hero() {
-  //import name or visitor name as welcome message.
-  const visitor = "Greg";
+async function getUserData(id) {
+  console.log(id);
+  const supabase = createServerComponentClient({ cookies });
+
+  const { data } = await supabase
+    .from("leads")
+    .select()
+    .eq("url_param", id)
+    .single();
+
+  if (data) {
+    return data;
+  }
+}
+
+async function Hero({ user }: any) {
+  const userData = await getUserData(user);
+  console.log(userData);
   return (
-    <div className="flex flex-col-reverse sm:flex-row justify-around items-center  mx-auto">
+    <div className="flex flex-col-reverse sm:flex-row justify-around items-center h-screen mx-auto">
       <div className="w-1/2">
         <div className="hidden sm:inline-block space-y-8 my-12">
-          <h2>{`Hi ${visitor}, I'm`}</h2>
+          <h2>{`Hey ${userData?.first_name || "there"}, I'm`}</h2>
           <h1 className="text-7xl">Noah Milliken</h1>
         </div>
         <div className="space-y-8">
@@ -28,7 +44,7 @@ function Hero() {
       </div>
       <div className="flex-col">
         <div className="flex flex-col items-center space-y-4  sm:hidden">
-          <h2>{`Hi ${visitor}, I'm`}</h2>
+          <h2>{`Hi ${userData}, I'm`}</h2>
           <h1 className="sm:hidden">Noah Milliken</h1>
         </div>
         <ProfilePicture />

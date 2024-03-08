@@ -3,10 +3,10 @@ import Image from "next/image";
 function ProfilePicture() {
   return (
     <Image
-      src="/profilePic.png "
+      src="/noahProfilePic.png "
       alt="Profile Image"
-      height={400}
-      width={400}
+      height={600}
+      width={600}
       className="rounded-full p-8 sm:p-0"
     />
   );

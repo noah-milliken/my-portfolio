@@ -1,44 +1,52 @@
 import MenuCard from "./MenuCard";
+import {
+  ArchiveIcon,
+  LockKeyhole,
+  Monitor,
+  SettingsIcon,
+  Wallet,
+} from "lucide-react";
 const cardsData = [
   {
-    title: "About",
+    title: "Front End Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni rem tempora numquam quo repudiandae at esse doloremque, odit maxime neque reiciendis ab autem earum id facere sunt cupiditate. Facilis.",
-    href: "about",
-    buttonText: "About me",
+      "Create attractive and dynamic user interface with the latest technology to represent your brand.",
+    icon: <Monitor />,
   },
   {
-    title: "Services and Technologies",
+    title: "Back End Development",
     description:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni rem tempora numquam quo repudiandae at esse doloremque, odit maxime neque reiciendis ab autem earum id facere sunt cupiditate. Facilis.",
-    href: "services",
-    buttonText: "Services",
+      "Implement serverside business logic to automate and streamline business tasks like record keeping, emailing, and invoicing.",
+    icon: <SettingsIcon />,
   },
   {
-    title: "Some of my past work",
+    title: "Database Management",
     description:
-      " Some of my past work and personal projects. I have enjoyed working with small busniesses in my community in the past as well as building applications that i actually use.",
-    href: "projects",
-    buttonText: "Projects",
+      "Implement databases to store and manipulate data for your business or organization using SQL and noSQL technologies",
+    icon: <ArchiveIcon />,
   },
   {
-    title: "Get in touch here",
+    title: "Auth Implementation",
     description:
       "Send me an email or link to some of my socials. I am always eager to discuss opportunities or setup a conversation",
-    href: "contact",
-    buttonText: "Contact",
+    icon: <LockKeyhole />,
+  },
+  {
+    title: "E-commerce",
+    description:
+      "Integrate Payments with your website or service for seamles transactions with your customers",
+    icon: <Wallet />,
   },
 ];
 function MenuCards() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 m-4 sm:m-8">
       {cardsData.map((card) => (
         <MenuCard
-          key={card.title + card.href}
+          key={card.title + card.icon}
           title={card.title}
           description={card.description}
-          href={card.href}
-          buttonText={card.buttonText}
+          icon={card.icon}
         />
       ))}
     </div>

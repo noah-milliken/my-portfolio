@@ -25,7 +25,7 @@ export default function Login() {
     }
   };
   return (
-    <main>
+    <main className="h-screen">
       <h1>Login</h1>
       <AuthForm handleSubmit={handleSubmit} />
       {error && <h3>{error}</h3>}

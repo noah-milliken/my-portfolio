@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-function AuthForm({ handleSubmit }) {
+function AuthForm({ handleSubmit }: any) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   return (

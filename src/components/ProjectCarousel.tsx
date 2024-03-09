@@ -21,12 +21,12 @@ import Link from "next/link";
 
 function ProjectCarousel({ projects }: any) {
   return (
-    <div className="flex items-center justify-center w-full h-screen border">
+    <div className="flex items-center justify-center w-full h-screen">
       <Carousel opts={{ loop: true }} className="w-5/6 h-5/6 flex items-center">
         <CarouselContent>
           {projects.map((project: any) => (
             <CarouselItem key={project.title + project.url}>
-              <Card className="flex flex-col justify-around h-screen border border-transparent  bg-transparent  border-red-500">
+              <Card className="flex flex-col justify-around h-screen border border-transparent  bg-transparent">
                 <CardContent
                   className="flex flex-col w-fill
                  items-center justify-center space-y-8 min-h-36"
@@ -40,7 +40,7 @@ function ProjectCarousel({ projects }: any) {
                       </Button>
                     )}
                     <Button>
-                      <Link href={`${project.url}`}>Cite Link</Link>
+                      <Link href={`${project.url}`}>Site Link</Link>
                     </Button>
                   </div>
                 </CardContent>

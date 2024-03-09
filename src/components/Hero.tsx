@@ -5,7 +5,7 @@ import Link from "next/link";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-async function getUserData(id) {
+async function getUserData(id: string) {
   console.log(id);
   const supabase = createServerComponentClient({ cookies });
 

@@ -8,7 +8,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e, email, password) => {
+  const handleSubmit = async (e: any, email: string, password: string) => {
     e.preventDefault();
     setError("");
     const supabase = createClientComponentClient();

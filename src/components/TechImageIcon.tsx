@@ -1,9 +1,14 @@
 import Image from "next/image";
 
-function TechImageIcon({ src, dimension }) {
+type TechImageIconProps = {
+  src: string;
+  dimension: number;
+};
+
+const TechImageIcon: React.FC<TechImageIconProps> = ({ src, dimension }) => {
   return (
     <Image height={dimension} width={dimension} src={src} alt="TechIcon" />
   );
-}
+};
 
 export default TechImageIcon;

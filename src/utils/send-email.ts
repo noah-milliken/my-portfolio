@@ -1,18 +1,17 @@
-
-function sendEmail(data){
+function sendEmail(data: any) {
   const apiEndpoint = `/api/email`;
 
   fetch(apiEndpoint, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((response)=> {
-      alert(response.message)
+    .then((response) => {
+      alert(response.message);
     })
-    .catch((err)=> {
-      alert(err)
-    })
+    .catch((err) => {
+      alert(err);
+    });
 }
 
-export {sendEmail}
+export { sendEmail };

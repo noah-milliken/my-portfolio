@@ -1,9 +1,9 @@
+import LogoutButton from "@/components/LogoutButton";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import LogoutButton from "@/components/logoutButton";
 
-export default async function AuthLayout({ children }) {
+export default async function AuthLayout({ children }: any) {
   const supabase = createServerComponentClient({ cookies });
   const { data } = await supabase.auth.getSession();
   const user = data.session;

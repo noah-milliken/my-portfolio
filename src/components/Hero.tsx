@@ -37,7 +37,7 @@ async function Hero({ user }: any) {
           </p>
           <Button>
             <Link href="/resume.pdf" target="blank" download>
-              <span>Download My CV</span>
+              Download My CV
             </Link>
           </Button>
         </div>

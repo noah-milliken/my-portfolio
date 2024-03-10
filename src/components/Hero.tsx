@@ -6,7 +6,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 async function getUserData(id: string) {
-  console.log(id);
   const supabase = createServerComponentClient({ cookies });
 
   const { data } = await supabase
@@ -16,13 +15,23 @@ async function getUserData(id: string) {
     .single();
 
   if (data) {
+    updateVisited(id);
     return data;
   }
 }
 
+async function updateVisited(id: string) {
+  const supabase = createServerComponentClient({ cookies });
+
+  const { data, error } = await supabase
+    .from("leads")
+    .update({ has_visited: true, last_visited: new Date().toISOString() })
+    .eq(`url_param`, id);
+}
+
 async function Hero({ user }: any) {
   const userData = await getUserData(user);
-  console.log(userData);
+
   return (
     <div className="flex flex-col-reverse sm:flex-row justify-around items-center h-screen mx-auto">
       <div className="w-1/2">

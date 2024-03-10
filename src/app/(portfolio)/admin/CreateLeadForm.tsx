@@ -54,7 +54,7 @@ export default function ContactForm() {
 
   const onSubmit = async (values: any) => {
     setIsLoading(true);
-    const res = await fetch("http://localhost:3000/api/leads", {
+    const res = await fetch("/api/leads", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),

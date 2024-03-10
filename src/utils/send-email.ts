@@ -14,4 +14,18 @@ function sendEmail(data: any) {
     });
 }
 
-export { sendEmail };
+function sendUpdate(url: any) {
+  console.log(JSON.stringify(url));
+  const apiEndpoint = `http://localhost:3000/api/update`;
+  fetch(apiEndpoint, {
+    method: "POST",
+    body: JSON.stringify(url),
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log("from response:", response);
+    })
+    .catch((err) => {});
+}
+
+export { sendEmail, sendUpdate };

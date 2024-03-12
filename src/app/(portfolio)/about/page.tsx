@@ -8,7 +8,7 @@ function About() {
       <div className="flex items-center mb-24 space-x-16">
         <div>
           <Image
-            src="/pikaPlaceholder.png"
+            src="https://my-tracker-portfolio-bucket.s3.amazonaws.com/pikaPlaceholder.png"
             height={350}
             width={350}
             alt="about me image"

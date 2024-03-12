@@ -39,9 +39,11 @@ function ProjectCarousel({ projects }: any) {
                         <Link href={`${project.github}`}>GitHub</Link>
                       </Button>
                     )}
-                    <Button>
-                      <Link href={`${project.url}`}>Site Link</Link>
-                    </Button>
+                    {project.url && (
+                      <Button>
+                        <Link href={`${project.url}`}>Site Link</Link>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
                 <Image

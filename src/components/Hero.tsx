@@ -45,7 +45,11 @@ async function Hero({ user }: any) {
             finding and implementing technology to solve people problems.
           </p>
           <Button>
-            <Link href="/resume.pdf" target="blank" download>
+            <Link
+              href="https://my-tracker-portfolio-bucket.s3.amazonaws.com/resume.pdf"
+              target="blank"
+              download
+            >
               Download My CV
             </Link>
           </Button>

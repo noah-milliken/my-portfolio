@@ -3,7 +3,7 @@ import Image from "next/image";
 function ProfilePicture() {
   return (
     <Image
-      src="/noahProfilePic.png "
+      src="https://my-tracker-portfolio-bucket.s3.amazonaws.com/noahProfilePic.png"
       alt="Profile Image"
       height={600}
       width={600}

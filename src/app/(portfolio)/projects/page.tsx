@@ -1,10 +1,10 @@
-import ProjectCarousel from "@/components/ProjectCarousel";
 import { projectsArr } from "./projects";
-function Projects() {
-  const projects = projectsArr;
+import CardsGrid from "@/components/CardsGrid";
+function Projects(): React.JSX.Element {
+  const projectArr = projectsArr;
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen">
-      <ProjectCarousel projects={projects} />
+    <div className="container">
+      <CardsGrid projects={projectArr} />
     </div>
   );
 }

@@ -16,7 +16,7 @@ function MobileNav() {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Button variant="ghost" size="icon">
-          <HamburgerMenuIcon className="sm:hidden" />
+          <HamburgerMenuIcon className="md:hidden" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>

@@ -57,7 +57,7 @@ async function Hero({ user }: any) {
       </div>
       <div className="flex-col">
         <div className="flex flex-col items-center space-y-4  sm:hidden">
-          <h2>{`Hi ${userData}, I'm`}</h2>
+          <h2>{`Hey ${userData?.first_name || "there"}, I'm`}</h2>
           <h1 className="sm:hidden">Noah Milliken</h1>
         </div>
         <ProfilePicture />

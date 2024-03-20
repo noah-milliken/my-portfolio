@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background-image: linear-gradient(90deg, #ffffff 35%, #838c9c 100%);
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -36,7 +36,9 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: rgb(255, 255, 255);
+
+    --background-image: linear-gradient(90deg, #47484b 23%, #838383 90%);
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -74,6 +76,7 @@
     @apply border-border;
   }
   body {
+    background: var(--background-image);
     @apply flex bg-background text-foreground;
   }
 }

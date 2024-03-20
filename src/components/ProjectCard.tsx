@@ -13,7 +13,7 @@ import Link from "next/link";
 function ProjectCard({ project }: any) {
   console.log(project);
   return (
-    <Card className="bg-transparent pt-6 border border-red-100">
+    <Card className=" bg-gray-500 bg-opacity-50  pt-6 border-hidden">
       <CardContent className="flex flex-col sm:flex-row items-center">
         <div className="sm:w-2/3 order-2 sm:order-1">
           <CardHeader className="gap-4">
@@ -50,4 +50,3 @@ function ProjectCard({ project }: any) {
 }
 
 export default ProjectCard;
- 

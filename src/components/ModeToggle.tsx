@@ -17,7 +17,7 @@ export default function ModeToggle() {
   const { setTheme } = useTheme();
 
   return (
-    <div className="fixed top-0 right-0 m-2 z-10 space-x-2">
+    <div className="flex fixed top-0 right-0 m-2 z-10 space-x-2">
       <MobileNav />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
